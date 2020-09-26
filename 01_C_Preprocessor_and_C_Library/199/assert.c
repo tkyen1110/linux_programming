@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 //#define NDEBUG
+
 int main(void)
 {
 	int i;
@@ -8,7 +9,7 @@ int main(void)
 	for(i=0; i<=5; i++)
 	{
 		//#ifdef NDEBUG
-			assert(i>=0 && i<5);	//¤£¦¨¥ß®É¡A°±¤îµ{¦¡
+			assert(i>=0 && i<5);	//ï¿½ï¿½ï¿½ï¿½ï¿½ß®É¡Aï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½
 		//#endif
 		printf("[%d]=%d\n", i, a[i]);
 	}

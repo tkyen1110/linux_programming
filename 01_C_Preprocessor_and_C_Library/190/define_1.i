@@ -854,11 +854,11 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 
 int main(void)
 {
-        int x = 2;
-        printf("X is %d.\n", x);
-        x = 2*2;
-        printf("X is %d.\n", x);
-        printf("%s\n", "The C Prepro cessor and The Library");
-        printf("TWO: OW\n");
-        return 0;
+	int x = 2;
+	printf("X is %d.\n", x);
+	x = 2*2;
+	printf("X is %d.\n", x);
+	printf("%s\n", "The C Prepro cessor and The Library");
+	printf("TWO: OW\n");
+	return 0;
 }

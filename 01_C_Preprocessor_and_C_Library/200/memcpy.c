@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #define N 6
+
 int main(void)
 {
 	int i;
