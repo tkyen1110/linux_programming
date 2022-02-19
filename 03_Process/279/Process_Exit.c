@@ -12,8 +12,8 @@ int main(void)
 	if(atexit(foo2))
 		printf("cannot register foo2()\n");
 	return 0;
-	//_exit(0);
-	//exit(0);
+	// _exit(0);
+	// exit(0);
 }
 void foo1(void)
 {

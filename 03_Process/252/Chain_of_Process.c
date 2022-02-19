@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/wait.h>
 int main(void)
 {
 	int i, n=10;
@@ -11,6 +12,7 @@ int main(void)
 			break;
 	}
 	fprintf(stderr, "i:%d pid:%ld parentid:%ld childid:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid);
+	wait(NULL);
 	return 0;
 }
 

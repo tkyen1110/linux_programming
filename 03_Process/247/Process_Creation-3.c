@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 int main()
 {
@@ -14,17 +15,17 @@ int main()
 			exit(1);
 		case 0:
 			message = "This is the child";
-			//n = 5;
+			n = 5;
 			break;
 		default:
 			message = "This is the parent";
-			//n = 3;
+			n = 3;
 			break;
 	}
 	for(; n > 0; n--) 
 	{
 		puts(message);
-		//sleep(1);
+		sleep(1);
 	}
 	exit(0);
 }
