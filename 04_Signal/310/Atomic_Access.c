@@ -23,7 +23,7 @@ int main(void)
 		}
 		fputc('\n', stderr);
 	}
-	printf("Programterminating ...\n");
+	printf("Program terminating ...\n");
 	return 0;
 }
 

@@ -17,6 +17,7 @@ int main(void)
 		}
 		fputc('\n', stderr);
 		sigprocmask(SIG_SETMASK, &oldmask, NULL);
+		// sigprocmask(SIG_UNBLOCK, &intmask, NULL);
 	}
 	return 0;
 }

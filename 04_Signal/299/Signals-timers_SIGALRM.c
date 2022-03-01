@@ -14,14 +14,15 @@ int main()
 	printf ("alarm application starting\n");
 	if((pid = fork()) == 0) 
 	{
-		sleep (5); 
-		kill(getppid(), SIGALRM); 
+		sleep (5);
+		kill(getppid(), SIGALRM);
 		exit (0) ;
 	}
 	printf ("waiting for alarm to go off\n");
 	(void) signal(SIGALRM, ding);
 
 	pause();
+	printf ("alarm_fired = %d\n", alarm_fired);
 	if(alarm_fired)
 		printf ("Ding\n");
 	printf ("done\n");

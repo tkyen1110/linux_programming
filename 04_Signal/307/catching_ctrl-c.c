@@ -11,7 +11,7 @@ int main(void)
 {
 	struct sigaction act;
 	act.sa_handler = catchctrlc;
-	act.sa_flags = 0;
+	act.sa_flags = 0;
 	if((sigemptyset(&act.sa_mask) == -1) || (sigaction(SIGINT, &act, NULL) == -1))
 		perror("Failed to set SIGINT to handle Ctrl-C");
 	printf("befor calling pause()\n");

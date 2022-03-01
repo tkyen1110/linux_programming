@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <signal.h>
+#include <time.h>
 void alarm_handler(int signo)
 {
-        printf("%d\n", time(NULL));
+        printf("%ld\n", time(NULL));
 }
 int main(void)
 {

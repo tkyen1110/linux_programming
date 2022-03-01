@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <signal.h>
 sig_atomic_t sigreceived=0;
 void receiveCtrlC(int signo)
@@ -15,9 +16,9 @@ int main(void)
 	sigaction(SIGINT, &act, NULL);
 
 	printf("waiting ctrl-c\n");
-	while(sigreceived == 0)
-
+	while(sigreceived == 0) {
 		pause();
+	}
 	printf("received ctrl-c\n");
 	return 0;
 }

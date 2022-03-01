@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <signal.h>
+#include <wait.h>
 int main(void)
 {
 	//error handling omitted for clarity
@@ -13,12 +15,13 @@ int main(void)
 	childpid = fork();
 	if(childpid==0) 
 	{
+		sleep(3);
 		kill(getppid(), signum);
 		printf("child\n");
 	}
 	if(childpid>0)
 	{
-		sleep(3);
+		// sleep(3);
 		sigwait(&sigset, &signo);
 		printf("parent\n");
 		wait(NULL);

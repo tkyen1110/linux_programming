@@ -1,10 +1,11 @@
-#include <stdio.h> 
+#include <stdio.h>
+#include <unistd.h>
 #include <signal.h> 
-#include <time.h> 
+#include <time.h>
 void catcher(int sig) 
 { 
 	printf("inside catcher() function\n"); 
-} 
+}
 void timestamp(char *str) 
 { 
 	time_t t; 

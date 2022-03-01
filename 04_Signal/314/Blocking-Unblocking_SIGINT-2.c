@@ -1,6 +1,7 @@
-#include <stdio.h> 
-#include <signal.h> 
-#include <time.h> 
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+#include <time.h>
 
 void catcher(int sig)
 { 
@@ -29,13 +30,15 @@ int main(int argc, char *argv[])
 
 	alarm(1); /* SIGALRM will be sent in 1 second */ 
 	do
-	{  
+	{
 		time(&finish); 
 		diff = difftime(finish, start); 
 	}while(diff < 10); 
 
 	sigprocmask(SIG_SETMASK, &old_set, NULL);
- 	printf("SIGALRM signals unblocked at %s\n", ctime(&finish)); 
+	printf("SIGALRM signals unblocked at %s\n", ctime(&finish));
+	alarm(1);
+	sleep(2);
  	return(0); 
 } 
 

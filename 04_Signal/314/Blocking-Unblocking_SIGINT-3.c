@@ -1,6 +1,7 @@
-#include <stdio.h> 
-#include <signal.h> 
-#include <time.h> 
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+#include <time.h>
 
 void catcher(int sig)
 { 
@@ -38,7 +39,7 @@ int main(int argc, char *argv[])
 	sigprocmask(SIG_BLOCK, &new_set, &old_set);
 
 	sleep(3);
-	printf("aaa");
+	printf("aaa\n");
 	alarm(1); /* SIGALRM will be sent in 1 second */ 
 	do
 	{  

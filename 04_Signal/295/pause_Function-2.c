@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <signal.h>
+#include <sys/wait.h>
 void recvUSR1(int signo)
 {
 	printf("received SIGUSER1\n");

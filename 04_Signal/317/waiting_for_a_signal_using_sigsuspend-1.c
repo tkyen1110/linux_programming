@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <signal.h>
 sig_atomic_t sigreceived=0;
 void receiveSIG(int signo)
@@ -16,9 +17,9 @@ int main(void)
 
 	sigset_t masknew, maskold;
 	sigprocmask(SIG_SETMASK, NULL, &masknew);
-	sigaddset(&masknew, SIGINT);
-	sigprocmask(SIG_SETMASK, &masknew, &maskold);
-	sigdelset(&masknew, SIGINT);
+	// sigaddset(&masknew, SIGINT);
+	// sigprocmask(SIG_SETMASK, &masknew, &maskold);
+	// sigdelset(&masknew, SIGINT);
 	while(sigreceived == 0) 
 	{
 		sleep(5);

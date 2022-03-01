@@ -1,8 +1,9 @@
-#include <stdio.h> 
-#include <signal.h> 
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
 void ouch(int sig)
 {
-	printf("OUCH¡I ¡X I got signal %d\n", sig); 
+	printf("OUCH! - I got signal %d\n", sig);
 	(void)signal(SIGINT, SIG_DFL);
 }
 int main()

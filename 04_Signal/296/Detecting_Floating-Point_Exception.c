@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 		printf("usage : program i j\n");
 		return 0;
 	}
-	feenableexcept(FE_DIVBYZERO);
+	// feenableexcept(FE_DIVBYZERO);
 	signal(SIGFPE, recvFPE);
 	float a,b;
 	if(1!=sscanf(argv[1], "%f", &a))

@@ -18,9 +18,10 @@ int main(void)
 	sigset_t s, p;
 	sigemptyset(&s);
 	sigaddset(&s, SIGINT);
-
 	sigaddset(&s, SIGTSTP);
+	sigaddset(&s, SIGALRM);
 	sigprocmask(SIG_BLOCK, &s, NULL);
+	alarm(10);
 	while (1) {
 		sigpending(&p);
 		printsigset(&p);
@@ -28,4 +29,3 @@ int main(void)
 	}
 	return 0;
 }
-
