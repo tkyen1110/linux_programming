@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <sys/stat.h>
 #include <sys/msg.h>
 typedef struct mymsg1 
@@ -30,7 +31,7 @@ int main(void)
 		double average;
 		int sum = 0;
 		for(i=0; i<N; i++)
-		sum += data[i];
+			sum += data[i];
 		average = sum/(double)N;
 		mymsg1.type = 1; mymsg1.average = average; mymsg1.test=10;
 		mymsg2.type = 2; mymsg2.sum = sum;
@@ -43,8 +44,8 @@ int main(void)
 		//wait(NULL);
 		MyMsg1 mymsg1; MyMsg2 mymsg2;
 		int recv;
-		msgrcv(queueid, &mymsg2,sizeof(MyMsg2)-sizeof(long), 1, 0);
-		msgrcv(queueid, &mymsg1,sizeof(MyMsg1)-sizeof(long), 2, 0);
+		msgrcv(queueid, &mymsg2,sizeof(MyMsg2)-sizeof(long), 2, 0);
+		msgrcv(queueid, &mymsg1,sizeof(MyMsg1)-sizeof(long), 1, 0);
 		fprintf(stderr, "sum=%d average=%.1f test=%d\n",
 		mymsg2.sum, mymsg1.average, mymsg1.test);
 		msgctl(queueid, IPC_RMID, NULL);

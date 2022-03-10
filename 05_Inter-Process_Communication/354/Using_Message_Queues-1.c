@@ -1,6 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
 #include <sys/stat.h>
 #include <sys/msg.h>
+#include <sys/wait.h>
 typedef struct mymsg 
 {
 	long type;
@@ -15,13 +19,13 @@ int main(void)
 	childpid = fork();
 	if(childpid == 0)
 	{ //child
-//		sleep(1);
+		// sleep(1);
 		MyMsg mymsg1;
 		srand(time(NULL));
 		mymsg1.type = 1;
 		mymsg1.randnum = rand()%100;
 		msgsnd(queueid, &mymsg1, sizeof(MyMsg), 0);
-//		sleep(1);
+		// sleep(1);
 		return 0;
 	}
 	if(childpid>0) 

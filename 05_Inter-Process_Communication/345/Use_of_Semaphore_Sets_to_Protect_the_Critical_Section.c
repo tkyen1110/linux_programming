@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <sys/sem.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 int main()
 {
 	int i, j, delay=1000;
@@ -9,7 +11,7 @@ int main()
 		if(childpid = fork())
 			break;
 	char msg[128];
-	snprintf(msg, 128, "i:%d PID:%ld Parent PID:%ld Child PID:%ld\n", i, (long)getpid(), 	(long)getppid(), (long)childpid); 
+	snprintf(msg, 128, "i:%d PID:%ld Parent PID:%ld Child PID:%ld\n", i, (long)getpid(), (long)getppid(), (long)childpid); 
 	char *c = msg;
 	while(*c != '\0') 
 	{
