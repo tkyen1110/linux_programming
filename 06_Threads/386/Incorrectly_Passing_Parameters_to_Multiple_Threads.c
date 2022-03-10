@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <pthread.h>
 #define NUMTHREADS 10
 void *printarg(void *arg) 
@@ -15,7 +16,7 @@ int main(void)
 	for(i=0; i<NUMTHREADS; i++) 
 	{
 		pthread_create(tid+i, NULL, printarg, (void*)&i);
-		sleep(1);
+		// sleep(1);
 	}
 	for(j=0; j<NUMTHREADS; j++) 
 		pthread_join(tid[j], NULL);
