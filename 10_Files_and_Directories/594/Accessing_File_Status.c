@@ -17,8 +17,8 @@ int main(int argc, char *arg[])
 	if(S_ISDIR(statbuf.st_mode))
 		printf("%s is a directory\n", arg[1]);
 	printf("[%s] : \n", arg[1]);
-	printf("number of hard link  : %d\n", statbuf.st_nlink);
-	printf("size : %d\n", statbuf.st_size); 
+	printf("number of hard link  : %ld\n", statbuf.st_nlink);
+	printf("size : %ld\n", statbuf.st_size); 
 	printf("last access at : %s", ctime(&(statbuf.st_atime)));
 	printf("last modification at : %s", ctime(&(statbuf.st_mtime)));
 	return 0;
