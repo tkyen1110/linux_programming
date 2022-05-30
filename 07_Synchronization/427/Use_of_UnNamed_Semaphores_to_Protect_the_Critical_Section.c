@@ -1,6 +1,7 @@
-#include <stdio.h>      
-#include <stdlib.h>    
+#include <stdio.h>
+#include <stdlib.h>
 #include <semaphore.h>  
+#include <pthread.h>
 
 void handler(void *ptr);
 sem_t mutex;
@@ -25,15 +26,15 @@ void handler(void *ptr)
 {
     int x;
     x=*((int *) ptr);
-    printf("Thread %d: Waiting to enter critical region¡K\n", x);
+    printf("Thread %d: Waiting to enter critical region...\n", x);
     sem_wait(&mutex);
 	    /* START CRITICAL REGION */
-    printf("Thread %d: Now in critical region¡K\n", x);
+    printf("Thread %d: Now in critical region...\n", x);
     printf("Thread %d: Counter Value: %d\n", x, counter);
-    printf("Thread %d: Incrementing Counter¡K\n", x);
+    printf("Thread %d: Incrementing Counter...\n", x);
     counter++;
     printf("Thread %d: New Counter Value: %d\n", x, counter);
-    printf("Thread %d: Exiting critical region¡K\n", x);
+    printf("Thread %d: Exiting critical region...\n", x);
 	    /* END CRITICAL REGION */
     sem_post(&mutex);
     pthread_exit(0);

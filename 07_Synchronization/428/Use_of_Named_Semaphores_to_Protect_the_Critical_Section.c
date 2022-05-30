@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <semaphore.h>
+#include <wait.h>
 int main(void) 
 {
 	int i, delay=1000000, n=100;

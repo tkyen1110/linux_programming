@@ -5,11 +5,13 @@ int main(void)
 {
 	int i, delay=1000000, n=3;
 	pid_t childpid;
-	for(i=1; i<=n; i++)
+	for(i=1; i<=n; i++) {
 		if((childpid = fork()))
-	break;
+			break;
+	}
 	char msg[128];
-	snprintf(msg, 128, "i:%d PID:%ld Parent PID:%ld Child PID:%ld\n", i, (long)getpid(), 	(long)getppid(), (long)childpid);
+	snprintf(msg, 128, "i:%d PID:%ld Parent PID:%ld Child PID:%ld\n", \
+			 i, (long)getpid(), (long)getppid(), (long)childpid);
 	char *c = msg;
 
 	while( *c != '\0' ) 

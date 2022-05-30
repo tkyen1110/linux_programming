@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <pthread.h>
 #define pnum 5
 pthread_mutex_t mutex[pnum];

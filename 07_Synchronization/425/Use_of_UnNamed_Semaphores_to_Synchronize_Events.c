@@ -1,6 +1,7 @@
-#include <stdio.h>      
-#include <stdlib.h>    
-#include <semaphore.h>  
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <semaphore.h>
 
 void handler1(void *ptr);
 void handler2(void *ptr);
